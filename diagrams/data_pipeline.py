@@ -16,7 +16,7 @@ with Diagram('The Adventures of Eli - Data Pipeline', filename='data_pipeline', 
     
     with Cluster('Transformation'):
         unconverted_gpx_folder = Custom('Unconverted GPX', './my_resources/folder-icon.png') 
-        gpx_to_json_scr = Custom('Batch GPX to JSON', './my_resources/python-script-icon.png')
+        gpx_to_json_scr = Custom('GPX to JSON (Batch)', './my_resources/python-script-icon.png')
         converted_gpx_folder = Custom('Converted GPX', './my_resources/folder-icon.png') 
         unenhanced_json_folder = Custom('Unenhanced JSON', './my_resources/folder-icon.png')
         enhance_json_scr = Custom('Enhance JSON', './my_resources/python-script-icon.png')
