@@ -24,8 +24,8 @@ if len(listing) == 0:
 for fn in listing:
     # Convert GPX to JSON and organize
     fn_json = fn.replace('gpx', 'json')
-    src_gpx = './data/gpx-unconverted-tmp/{}'.format(fn)
-    dst_json = './data/json-unenhanced-tmp/{}'.format(fn_json)
+    src_gpx = './data/gpx-unconverted/{}'.format(fn)
+    dst_json = './data/json-unenhanced/{}'.format(fn_json)
     gpxtofile(
         src_gpx,
         dst_json,
@@ -33,5 +33,5 @@ for fn in listing:
     )
 
     # Move GPX file to gpx-converted directory
-    dst_gpx = './data/gpx-converted-tmp/{}'.format(fn)
+    dst_gpx = './data/gpx-converted/{}'.format(fn)
     shutil.move(src=src_gpx, dst=dst_gpx)
