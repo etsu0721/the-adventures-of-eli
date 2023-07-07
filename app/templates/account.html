@@ -1,5 +1,50 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>{{ title }}</h1>
-    {{ current_user.username }}
+    <h1> {{ title }}</h1>
+    <div>
+        <img class="account-img" src="{{ image_file }}">
+        <h3>{{ current_user.username }}</h3>
+        <p>{{ current_user.email }}</p>
+    </div>
+    <section>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div>
+                    {{ form.username.label }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="custom-invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div>
+                            {{ form.username(class="account-field-width") }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    {{ form.email.label }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="custom-invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div>
+                            {{ form.email(class="account-field-width") }}
+                        </div>
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit }}
+            </div>
+        </form>
+    </section>
 {% endblock content %}

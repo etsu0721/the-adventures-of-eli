@@ -16,7 +16,7 @@
                         </div>
                     {% else %}
                         <div>
-                            {{ form.username }}
+                            {{ form.username(class="account-field-width") }}
                         </div>
                     {% endif %}
                 </div>
@@ -32,18 +32,18 @@
                         </div>
                     {% else %}
                         <div>
-                            {{ form.email }}
+                            {{ form.email(class="account-field-width") }}
                         </div>
                     {% endif %}
                 </div>
 
                 <div>
                     {{ form.password.label }}
-                    {{ form.password }}
+                    {{ form.password(class="account-field-width") }}
                 </div>
                 <div>
                     {{ form.confirm_password.label }}
-                    {{ form.confirm_password }}
+                    {{ form.confirm_password(class="account-field-width") }}
                 </div>
             </fieldset>
             <div>
