@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1> {{ title }}</h1>
+    <div>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <div>
+                    {{ form.email.label }}
+                    {{ form.email }}
+                </div>
+                <div>
+                    {{ form.password.label }}
+                    {{ form.password }}
+                </div>
+                <div>
+                    <label>
+                        {{ form.remember }}
+                        {{ form.remember.label }}
+                    </label>
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit }}
+            </div>
+            <small class="text-muted ml-2">
+                <a href="#">Forgot password?</a>
+            </small>
+        </form>
+    </div>
+    <div>
+        <small>
+            Need an account? <a href="{{ url_for('register') }}">Register</a>
+        </small>
+    </div>
+{% endblock content %}

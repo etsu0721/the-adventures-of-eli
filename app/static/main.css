@@ -1,0 +1,17 @@
+.error {
+    color: rgb(30, 0, 0);
+    background-color: rgba(255, 170, 170, 0.5);
+    border-color: rgb(30, 0, 0);
+}
+
+.success {
+    color: rgb(0, 30, 0);
+    background-color: rgba(170, 255, 170, 0.5);
+    border-color: rgb(0, 30, 0);
+}
+
+.info {
+    color: rgb(0, 0, 30);
+    background-color: rgba(170, 170, 255, 0.5);
+    border-color: rgb(0, 0, 30);
+}

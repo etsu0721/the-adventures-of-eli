@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1> {{ title }} </h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <!-- File upload -->
+        <div>
+            <input type="file" name="fileUpload" accept=".gpx" required>
+            <input type="submit" value="Upload">
+        </div>
+
+        <aside>
+            <!-- GPX Created By-->
+            <div>
+                <label for="gpxCreatedBy">GPX created by</label>
+                <input type="text" name="gpxCreatedBy" id="gpxCreatedBy" disabled>
+            </div> <!-- Eventually will be auto-filled based on uploaded GPX file -->
+
+            <!-- GPX Created Date -->
+            <div>
+                <label for="gpxCreatedDate">GPX created date</label>
+                <input type="text" name="gpxCreatedDate" id="gpxCreatedDate" disabled>
+            </div> <!-- Eventually will be auto-filled based on uploaded GPX file -->
+        </aside>
+
+        <!-- Adventure title -->
+        <div>
+            <label for="adventureTitle">Adventure title</label>
+            <input type="text" name="adventureTitle" id="adventureTitle" required>
+        </div>
+        
+        <!-- Activity -->
+        <div>
+            <label for="activity">Activity</label>
+            <select name="activity" id="activity" required>
+                <option selected="selected" value="">Select</option>
+                <option value="hike">Hike</option>
+                <option value="kayak">Kayak</option>
+                <option value="run">Run</option>
+                <option value="walk">Walk</option>
+            </select>
+        </div> <!-- Eventually pull options from database -->
+
+        <!-- Activity Type -->
+        <div>
+            <label for="activityType">Activity type</label>
+            <select name="activityType" id="activityType" required>
+                <option selected="selected" value="">Select</option>
+                <option value="event">Event</option>
+                <option value="leisure">Leisure</option>
+                <option value="training">Training</option>
+            </select>
+        </div> <!-- Eventually pull options from database -->
+
+        <!-- Equipment -->
+        <div>
+            <label for="equipment">Equipment</label>
+            <select name="equipment" id="equipment" size="5" multiple required>
+                <option selected="selected" value="">Select</option>
+                <option value="paddle 1">Paddle 1</option>
+                <option value="paddle 2">Paddle 2</option>
+                <option value="shoe 1">Shoe 1</option>
+                <option value="shoe 2">Shoe 2</option>
+            </select>
+        </div> <!-- Eventualy pull options from database based on Activity selection-->
+
+        <button>Submit</button>
+    </form>
+{% endblock content %}
