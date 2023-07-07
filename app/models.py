@@ -1,17 +1,11 @@
-from app import db
+from app import db, login_manager
+from flask_login import UserMixin
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
-# Association table
-activity_gear = db.Table(
-    'user_activity_gear',
-    # db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id')),
-    db.Column('gear_id', db.Integer, db.ForeignKey('gear.id'))
-)
-
-
-# Tables
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -21,6 +15,15 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.id}', '{self.username}', '{self.email}', '{self.image_file}')"
     
+
+# Association table
+activity_gear = db.Table(
+    'user_activity_gear',
+    # db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('activity_id', db.Integer, db.ForeignKey('activity.id')),
+    db.Column('gear_id', db.Integer, db.ForeignKey('gear.id'))
+)
+
 
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -14,8 +14,13 @@
         <a href="{{ url_for('create_adventure') }}">New Adventure</a>
         <a href="{{ url_for('gear') }}">Gear</a>
         <a href="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('register') }}">Register</a>
-        <a href="{{ url_for('login') }}">Login</a>
+        {% if current_user.is_authenticated %}
+          <a href="{{ url_for('account') }}">Account</a>
+          <a href="{{ url_for('logout') }}">Logut</a>
+        {% else %}
+          <a href="{{ url_for('register') }}">Register</a>
+          <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
       </nav>
     </header>
     <div>

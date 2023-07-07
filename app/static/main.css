@@ -15,3 +15,11 @@
     background-color: rgba(170, 170, 255, 0.5);
     border-color: rgb(0, 0, 30);
 }
+
+.custom-invalid-feedback{
+    color: rgb(30, 0, 0);
+    background-color: rgba(255, 170, 170, 0.5);
+    border-color: rgb(30, 0, 0);
+    border-radius: 5px;
+    padding: 3px;
+}
